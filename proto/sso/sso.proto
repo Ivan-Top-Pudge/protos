@@ -9,6 +9,8 @@ service Auth {
     rpc Login (LoginRequest) returns (LoginResponse);
     // IsAdmin checks whether a user is an admin.
     rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
+    // IsUserExists checks whether a user exists
+    rpc IsUserExists(IsUserExistsRequest) returns (IsUserExistsResponse);
 }
 
 message RegisterRequest {
@@ -34,6 +36,14 @@ message IsAdminRequest {
     int64 user_id = 1;
 }
 
-message IsAdminResponse{
+message IsAdminResponse {
     bool is_admin = 1;
+}
+
+message IsUserExistsRequest {
+    int64 user_id = 1;
+}
+
+message IsUserExistsResponse {
+    bool exists = 1;
 }
